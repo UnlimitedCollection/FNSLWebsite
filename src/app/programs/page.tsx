@@ -1,7 +1,5 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import {
     ArrowRight,
@@ -19,17 +17,32 @@ import {
     Library,
     Activity
 } from "lucide-react";
+import { client } from "@/sanity/client";
+import { programsQuery } from "@/sanity/lib/queries";
 
-export default function ProgramsPage() {
+// Placeholder interface for sanity program data
+interface SanityProgram {
+    _id: string;
+    title: string;
+    slug: string;
+    theme?: string;
+    mainImage?: string;
+    overview?: string;
+    impactMetrics?: Array<{ value: string; label: string }>;
+}
 
-    const programThemes = [
-        { icon: School, title: "Training & Capacity Building", desc: "Upskilling farmers in modern agricultural techniques and business management." },
-        { icon: Globe, title: "Market Access", desc: "Connecting local cooperatives directly to ethical global Fairtrade buyers." },
-        { icon: Leaf, title: "Sustainability & Climate", desc: "Implementing climate-resilient farming strategies and biodiversity protection." },
-        { icon: CheckCircle, title: "Quality & Compliance", desc: "Ensuring products meet international standards and Fairtrade certification requirements." },
-        { icon: Users, title: "Women & Youth", desc: "Empowering marginalized groups through leadership training and economic opportunities." },
-        { icon: Handshake, title: "Partnerships & Advocacy", desc: "Building coalitions for policy change and strengthening global fair trade networks." },
-    ];
+export const dynamic = 'force-dynamic';
+
+export default async function ProgramsPage() {
+    let programs: SanityProgram[] = [];
+    try {
+        programs = await client.fetch(programsQuery);
+    } catch (error) {
+        console.warn("Failed to fetch programs:", error);
+    }
+
+    // Filter/Select featured project (just taking the first one for now)
+    const featuredProject = programs.length > 0 ? programs[0] : null;
 
     const deliverySteps = [
         { icon: ClipboardCheck, title: "Assess", desc: "Identify needs & opportunities in local communities." },
@@ -76,29 +89,36 @@ export default function ProgramsPage() {
                 </div>
             </section>
 
-            {/* Program Themes Grid */}
+            {/* Program Themes Grid (Mapped from Sanity Programs) */}
             <section className="w-full px-4 lg:px-40 py-16 bg-background-light dark:bg-background-dark">
                 <div className="max-w-[1280px] w-full mx-auto">
                     <div className="flex flex-col mb-10 text-center lg:text-left">
-                        <h2 className="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-tight">Key Program Themes</h2>
+                        <h2 className="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-tight">Key Programs</h2>
                         <p className="text-slate-500 mt-2 text-lg">Comprehensive support pillars for sustainable growth.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {programThemes.map((theme, i) => (
-                            <div key={i} className="group bg-white dark:bg-surface-dark p-8 rounded-xl shadow-sm border border-transparent hover:border-primary/50 transition-all hover:shadow-md flex flex-col gap-4">
-                                <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
-                                    <theme.icon size={32} />
+
+                    {programs.length > 0 ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {programs.map((program) => (
+                                <div key={program._id} className="group bg-white dark:bg-surface-dark p-8 rounded-xl shadow-sm border border-transparent hover:border-primary/50 transition-all hover:shadow-md flex flex-col gap-4">
+                                    <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                        <Leaf size={32} />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">{program.title}</h3>
+                                    <p className="text-slate-600 dark:text-gray-300 text-base leading-relaxed flex-grow line-clamp-3">
+                                        {program.overview || "No overview available."}
+                                    </p>
+                                    <Link href="#" className="text-primary font-bold text-sm flex items-center gap-1 mt-2 group-hover:gap-2 transition-all">
+                                        View Project <ArrowRight size={16} />
+                                    </Link>
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{theme.title}</h3>
-                                <p className="text-slate-600 dark:text-gray-300 text-base leading-relaxed flex-grow">
-                                    {theme.desc}
-                                </p>
-                                <Link href="#" className="text-primary font-bold text-sm flex items-center gap-1 mt-2 group-hover:gap-2 transition-all">
-                                    View Projects <ArrowRight size={16} />
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="p-8 text-center text-slate-500 border border-dashed rounded-lg">
+                            No active programs found. Add content in Sanity Studio.
+                        </div>
+                    )}
                 </div>
             </section>
 
@@ -136,46 +156,57 @@ export default function ProgramsPage() {
             </section>
 
             {/* Featured Project */}
-            <section className="w-full px-4 lg:px-40 py-16 bg-background-light dark:bg-background-dark">
-                <div className="max-w-[1280px] w-full mx-auto">
-                    <div className="flex flex-col lg:flex-row bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-sm">
-                        <div className="lg:w-1/2 relative min-h-[300px]">
-                            <Image
-                                src="https://images.unsplash.com/photo-1621961058098-971a17b07ee6?auto=format&fit=crop&q=80"
-                                alt="Cinnamon Processing"
-                                fill
-                                className="object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 lg:hidden">
-                                <h2 className="text-white text-2xl font-bold">Featured Project: Cinnamon Producers of Galle</h2>
-                            </div>
-                        </div>
-                        <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-                            <div className="flex items-center gap-2 mb-4">
-                                <span className="px-3 py-1 bg-primary/20 text-slate-900 dark:text-primary text-xs font-bold rounded-full uppercase tracking-wide">Spotlight</span>
-                                <span className="text-slate-500 text-xs font-medium">Updated 3 days ago</span>
-                            </div>
-                            <h2 className="hidden lg:block text-slate-900 dark:text-white text-3xl font-bold leading-tight mb-4">Cinnamon Producers of Galle</h2>
-                            <p className="text-slate-700 dark:text-gray-300 text-lg mb-8 leading-relaxed">
-                                Through targeted interventions in processing and organic certification, we&apos;ve helped the Galle Cinnamon Cooperative achieve premium pricing in European markets.
-                            </p>
-                            <div className="grid grid-cols-2 gap-6 mb-8 border-t border-b border-gray-100 dark:border-gray-800 py-6">
-                                <div>
-                                    <p className="text-4xl font-black text-primary mb-1">+20%</p>
-                                    <p className="text-sm font-medium text-slate-500">Income Increase</p>
-                                </div>
-                                <div>
-                                    <p className="text-4xl font-black text-primary mb-1">500+</p>
-                                    <p className="text-sm font-medium text-slate-500">Farmers Certified</p>
+            {featuredProject && (
+                <section className="w-full px-4 lg:px-40 py-16 bg-background-light dark:bg-background-dark">
+                    <div className="max-w-[1280px] w-full mx-auto">
+                        <div className="flex flex-col lg:flex-row bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-sm">
+                            <div className="lg:w-1/2 relative min-h-[300px]">
+                                {featuredProject.mainImage ? (
+                                    <Image
+                                        src={featuredProject.mainImage}
+                                        alt={featuredProject.title}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 font-bold text-xl">
+                                        Featured Project
+                                    </div>
+                                )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 lg:hidden">
+                                    <h2 className="text-white text-2xl font-bold">Featured: {featuredProject.title}</h2>
                                 </div>
                             </div>
-                            <Button variant="secondary" className="w-fit">
-                                View Full Case Study
-                            </Button>
+                            <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className="px-3 py-1 bg-primary/20 text-slate-900 dark:text-primary text-xs font-bold rounded-full uppercase tracking-wide">Spotlight</span>
+                                    <span className="text-slate-500 text-xs font-medium">Ongoing</span>
+                                </div>
+                                <h2 className="hidden lg:block text-slate-900 dark:text-white text-3xl font-bold leading-tight mb-4">{featuredProject.title}</h2>
+                                <p className="text-slate-700 dark:text-gray-300 text-lg mb-8 leading-relaxed">
+                                    {featuredProject.overview}
+                                </p>
+
+                                {/* Impact Metrics from Sanity or Fallback */}
+                                {featuredProject.impactMetrics && featuredProject.impactMetrics.length > 0 && (
+                                    <div className="grid grid-cols-2 gap-6 mb-8 border-t border-b border-gray-100 dark:border-gray-800 py-6">
+                                        {featuredProject.impactMetrics.slice(0, 2).map((metric, idx) => (
+                                            <div key={idx}>
+                                                <p className="text-4xl font-black text-primary mb-1">{metric.value}</p>
+                                                <p className="text-sm font-medium text-slate-500">{metric.label}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                <Button variant="secondary" className="w-fit">
+                                    View Full Case Study
+                                </Button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
             {/* CTA Band */}
             <section className="w-full px-4 lg:px-40 py-20 bg-[#102210] relative overflow-hidden">

@@ -1,8 +1,32 @@
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ArrowRight, Search, CheckCircle, Handshake, Leaf, MapPin } from "lucide-react";
+import { client } from "@/sanity/client";
+import { productsQuery } from "@/sanity/lib/queries";
+import Link from "next/link";
+import Image from "next/image";
 
-export default function ProductsPage() {
+// Placeholder types until we generate Sanity types
+interface Product {
+    _id: string;
+    name: string;
+    slug: string;
+    mainImage?: string;
+    categories: string[];
+    shortDescription?: string;
+    certifications?: string[];
+}
+
+export const dynamic = 'force-dynamic';
+
+export default async function ProductsPage() {
+    let products: Product[] = [];
+    try {
+        products = await client.fetch(productsQuery);
+    } catch (error) {
+        console.warn("Failed to fetch products:", error);
+    }
+
     return (
         <div className="flex flex-col min-h-screen">
             {/* Header */}
@@ -67,7 +91,7 @@ export default function ProductsPage() {
                 </div>
             </div>
 
-            {/* Categories */}
+            {/* Categories (Static for now, could be dynamic) */}
             <section className="py-16 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">Explore Our Categories</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -91,7 +115,7 @@ export default function ProductsPage() {
                 </div>
             </section>
 
-            {/* Featured Products */}
+            {/* Featured Products (Dynamic) */}
             <section className="py-16 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center mb-8">
@@ -101,31 +125,49 @@ export default function ProductsPage() {
                         </div>
                     </div>
 
-                    <div className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0">
-                        {[
-                            { name: "Organic Black Pepper", region: "Matale", cat: "Spices", img: "https://images.unsplash.com/photo-1558994340-3b603314051a?auto=format&fit=crop&q=80" },
-                            { name: "Virgin Coconut Oil", region: "Kurunegala", cat: "Coconut", img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80" },
-                            { name: "Premium Earl Grey", region: "Nuwara Eliya", cat: "Tea", img: "https://images.unsplash.com/photo-1571934811356-5cc55449d0f4?auto=format&fit=crop&q=80" },
-                            { name: "Ceylon Cinnamon", region: "Galle", cat: "Spices", img: "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&q=80" }
-                        ].map((item, i) => (
-                            <Card key={i} className="min-w-[280px] w-[280px] snap-start hover:shadow-md transition-shadow p-0 overflow-hidden">
-                                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${item.img})` }}></div>
-                                <div className="p-4 flex flex-col gap-3">
-                                    <div>
-                                        <div className="text-xs font-bold text-primary mb-1 uppercase tracking-wider">{item.cat}</div>
-                                        <h3 className="font-bold text-lg leading-tight text-slate-900 dark:text-white">{item.name}</h3>
-                                        <div className="flex items-center gap-1 text-gray-500 text-sm mt-1">
-                                            <MapPin size={16} />
-                                            <span>{item.region}, Sri Lanka</span>
+                    {products.length === 0 ? (
+                        <div className="p-8 text-center text-slate-500 border border-dashed border-gray-300 rounded-xl">
+                            No products found. Add content in Sanity Studio to see it here.
+                        </div>
+                    ) : (
+                        <div className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
+                            {products.map((item, i) => (
+                                <Link href={`/products/${item.slug}`} key={item._id} className="min-w-[280px] w-[280px]">
+                                    <Card className="h-full snap-start hover:shadow-md transition-shadow p-0 overflow-hidden group">
+                                        <div className="h-48 bg-gray-200 relative overflow-hidden">
+                                            {item.mainImage ? (
+                                                <Image
+                                                    src={item.mainImage}
+                                                    alt={item.name}
+                                                    fill
+                                                    className="object-cover transition-transform group-hover:scale-105"
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center text-slate-400 bg-slate-100">
+                                                    No Image
+                                                </div>
+                                            )}
                                         </div>
-                                    </div>
-                                    <Button variant="outline" className="w-full text-primary border-primary hover:bg-primary-dark hover:text-white">
-                                        Request Quote
-                                    </Button>
-                                </div>
-                            </Card>
-                        ))}
-                    </div>
+                                        <div className="p-4 flex flex-col gap-3">
+                                            <div>
+                                                {item.categories && item.categories.length > 0 && (
+                                                    <div className="text-xs font-bold text-primary mb-1 uppercase tracking-wider">{item.categories[0]}</div>
+                                                )}
+                                                <h3 className="font-bold text-lg leading-tight text-slate-900 dark:text-white line-clamp-1">{item.name}</h3>
+                                                <div className="flex items-center gap-1 text-gray-500 text-sm mt-1">
+                                                    {/* <MapPin size={16} /> */}
+                                                    <span>Sri Lanka</span>
+                                                </div>
+                                            </div>
+                                            <Button variant="outline" className="w-full text-primary border-primary hover:bg-primary-dark hover:text-white mt-auto">
+                                                View Details
+                                            </Button>
+                                        </div>
+                                    </Card>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </div>
