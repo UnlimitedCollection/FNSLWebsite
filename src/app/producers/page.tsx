@@ -46,7 +46,7 @@ export default async function ProducersPage() {
                     <div className="max-w-3xl">
                         <h1 className="text-slate-900 dark:text-white text-4xl sm:text-5xl font-black leading-tight mb-4">Our Producers</h1>
                         <p className="text-slate-600 dark:text-gray-400 text-lg font-normal leading-relaxed">
-                            Discover Sri Lanka's Fairtrade certified producers committed to ethical farming, sustainable trade, and community growth.
+                            Discover Sri Lanka&apos;s Fairtrade certified producers committed to ethical farming, sustainable trade, and community growth.
                         </p>
                     </div>
 

@@ -161,7 +161,7 @@ export default function ContactPage() {
                                 <ChevronDown className="transition-transform duration-300 group-open:rotate-180" size={20} />
                             </summary>
                             <div className="px-5 pb-5 pt-0 text-slate-600 dark:text-gray-400 leading-relaxed">
-                                To become certified, you must meet specific social, economic, and environmental standards. Please use the contact form above and select "Producer" to request our starter kit.
+                                To become certified, you must meet specific social, economic, and environmental standards. Please use the contact form above and select &quot;Producer&quot; to request our starter kit.
                             </div>
                         </details>
 
@@ -171,7 +171,7 @@ export default function ContactPage() {
                                 <ChevronDown className="transition-transform duration-300 group-open:rotate-180" size={20} />
                             </summary>
                             <div className="px-5 pb-5 pt-0 text-slate-600 dark:text-gray-400 leading-relaxed">
-                                We maintain an updated directory. If you are a buyer, please select "Buyer" in the contact form to receive a tailored list.
+                                We maintain an updated directory. If you are a buyer, please select &quot;Buyer&quot; in the contact form to receive a tailored list.
                             </div>
                         </details>
                     </div>

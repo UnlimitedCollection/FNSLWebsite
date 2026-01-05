@@ -71,7 +71,7 @@ export function ProducerCard({ producer }: ProducerCardProps) {
                             <p className="text-xs italic text-green-800 dark:text-green-200 flex gap-2">
                                 {/* Simple icon placeholder */}
                                 <span>🌱</span>
-                                "{producer.impactSnippet.text}"
+                                &quot;{producer.impactSnippet.text}&quot;
                             </p>
                         </div>
                     )}
