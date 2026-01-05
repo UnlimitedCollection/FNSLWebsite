@@ -1,65 +1,80 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Leaf, ShieldCheck, Users } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-surface-dark py-24 lg:py-32">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+          <span className="inline-block bg-primary/10 text-primary border border-primary/20 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-6">
+            Fairtrade NAPP Sri Lanka
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-6 max-w-4xl">
+            Empowering <span className="text-primary">Producers</span>,<br />
+            Connecting Markets.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl font-light leading-relaxed">
+            We bridge the gap between small-scale farmers and the international Fairtrade network, ensuring ethical trade and sustainable livelihoods.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Link href="/products">
+              <Button size="lg" icon={<ArrowRight size={18} />}>
+                Explore Products
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline" size="lg">
+                Join Our Network
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Background Pattern */}
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 opacity-10">
+          <Leaf size={400} className="text-primary rotate-45" />
         </div>
-      </main>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-20 bg-background-light dark:bg-background-dark">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card hoverEffect>
+              <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary mb-4">
+                <Users size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Producer Support</h3>
+              <p className="text-slate-600 dark:text-slate-400">
+                Direct assistance to over 15,000 farmers across Sri Lanka.
+              </p>
+            </Card>
+
+            <Card hoverEffect>
+              <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary mb-4">
+                <ShieldCheck size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Certification</h3>
+              <p className="text-slate-600 dark:text-slate-400">
+                Guiding cooperatives through rigorous Fairtrade standards.
+              </p>
+            </Card>
+
+            <Card hoverEffect>
+              <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary mb-4">
+                <Leaf size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Sustainability</h3>
+              <p className="text-slate-600 dark:text-slate-400">
+                Promoting climate-resilient and organic farming practices.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
