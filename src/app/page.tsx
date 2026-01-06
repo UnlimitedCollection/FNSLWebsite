@@ -10,7 +10,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div
             className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlNnhPkc7Xqv1lzMJNgNjKlnvb45T4tPFiZEbLCbNFcEsUcZjEV1c5UpD-Wez3SPFXYBE-dt6f2wqCQD0EYZ6gZYt2Rs-6KSCLaMaYdLmI1VX9pDsyAQyMGdPW990lkwtFHsDlUQg05eDGsAF32BvvS5E_l_WKL47ML05WXvWiY-3hqy35TwRvhjG5luvLJYxDbJyKZl0kI5PvcmY5OlN7rO-tfebxs9h930AVVII-7PjmKQMEOkNp22JWDHzVa_yr_KEvzx8UXhg')` }}
+            style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/images/hero-landscape.png')` }}
           ></div>
         </div>
         <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col items-start justify-center min-h-[600px]">
@@ -107,9 +107,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Ceylon Tea", subtitle: "Explore 24 Producers", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDlhnRxqVFIneyYb55SOAeahlAsrAjs3gwlPsmVIeER27Ia5c7dvui4lOYo9G2YzOPOtYVVNQ4NpXdmji2hhVeDsZjQWWGP62Jt0QxdNKQ8-SRc8QZDbVMowt4VjE7JwrHMgckNBTx1M96YBwdgJVFRz-E7TfPYT5ty2AY1RIAG1_FGGbSnOTYGc_RsA6WBO_SwoOPomDERLJHg57Mle9zvp2gSwbEXmmrVRPX2yE1WeoCp_meLQl7F9gRLFrWp8kOR2sVS-znW_MY" },
-              { title: "Spices", subtitle: "Cinnamon, Pepper, Cloves", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLj1MgT39eXelrpJNnw-yqGNWG6cvVDS3XYDhxbR4cAv0NHVXpvRdjCsWc1FVW_Qi7mENeRykZnlSDNJr9J1jw8JxBSmilaFxId2cjn1VUWDDOTBbViGWVFD6VH2W08TiWbEfosuOJyYz6-b3fdtu_axqVxqXmzPR-gy-0ZiMJKxLoGVsqUHgB3ZWBdFhGsrnMJZ2JyYlsy1DGZSWN7kEac-Wk_IjLtxfrgH47AI88iKF0oZ41wVPePqwsWAK5-PUPJS1OXEd9qqk" },
-              { title: "Coconut Products", subtitle: "Oil, Milk, Desiccated", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA6uB3_eBOt8zK9RYivOVO2Y2LBZG4Bcc9SoO89qH-tRSZCFjjuMFnV8jx1MC-jXt6TaJYLbqcZ7D5AB8j9xmrZUCKYX82pvViReE4hB94U3lQQuG8rT7I5l3wUSJcgX75QhPfCqyy9Z5_qVF3QppORH0fc1zFhGkL48CP2tO9XEOQt-_LeGBCpZ8xq_i1QCnxn1vbMNBWMgWIhdt-upQU_btEph1A4FbFXWoFP2xtmeUtqKa3FU4SjqI6JMTv2juljH7wo5Zd7JLQ" },
+              { title: "Ceylon Tea", subtitle: "Explore 24 Producers", img: "/images/category-tea.png" },
+              { title: "Spices", subtitle: "Cinnamon, Pepper, Cloves", img: "/images/category-spices.png" },
+              { title: "Coconut Products", subtitle: "Oil, Milk, Desiccated", img: "/images/category-coconut.png" },
               { title: "Fresh Fruits", subtitle: "Mango, Pineapple, Banana", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_YsLfCKpyWr8_gPuVm2mtw7-yx-BFbXtATi0owPjy-jsNmG18d4iIIGK14ad4FQbOhjMOMjQFdmXclZ0qcwpJg7UJHzQplpCsZH7oG-XmI-Mukbr6mw9rwTXSU52NxRyydS50IOMu5a2frY8rDNj-rt5C-AoiBa-n2s82jDCXBMfvmxdkIfOFNSHuGb_7OQ5-Yd5IkyRN69Q4x1UAwhdD6AA5t6ShLdoAbgKTEEClQT2K9q4t5fm9wPfL1D0XnlrqMicq90ZVWeY" },
               { title: "Handicrafts", subtitle: "Traditional Artisanal Goods", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCJ6-8g89giiYn7gO_zZ9Z6TP_URGkzvKYWv8dir_z57jz0vg9XlY-kJQ0Z3rIedQTedv8AIjzWTf89V2ADPK2vYjaBT-yPRWcYTWVKtUyZLeuCfJRnkUq2TouJX7kZykKmF3hwNnHngtC_qsrnnarfu6S5x7XTfdFabtSYIX29v3a4DBTjr5opBt6Aa6HZl9C3ErHF8aAk7-IzablnkabzLXpBBYT-weyCKR9w9dFgoUHn2iAa7oCKsDVajQpBwqfzFH_sUIaoutw" },
               { title: "Herbs & Ayurveda", subtitle: "Medicinal Plants & Oils", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDvno5gwrn_dUT0ODJniohH9pS2cVpvKccyQMEYdVs-VVxhsMwHxWQM_Ae3rszKm65zqIzC4-uORoFJAVPZSLmHIcAaJZbSKg-1_3WPWANUPmfm8LAL0ULfpJG9d2aNikVfT-TMwwFmufqu9Q4Q3wjkqm4VPNDloXPxDIuO_XCXy81K62MUxzosuliPlNEGGQTQ6uBw4Aj_vjak9ulDOCvOjzj3HRYg5oeql6O-gx2IGvE7FIOW8cvF1ta6_aD3JbGRFb6FzXMlM-8" }
@@ -160,7 +160,7 @@ export default function Home() {
                   <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1">
                     {producer.desc}
                   </p>
-                  <Link href="#" className="text-sm font-bold text-slate-900 dark:text-white hover:text-primary-dark dark:hover:text-primary flex items-center gap-1">
+                  <Link href={`/producers/producer-${i + 1}`} className="text-sm font-bold text-slate-900 dark:text-white hover:text-primary-dark dark:hover:text-primary flex items-center gap-1">
                     Read Story <ArrowRight size={16} />
                   </Link>
                 </div>

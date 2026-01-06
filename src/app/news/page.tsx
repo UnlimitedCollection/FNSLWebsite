@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Search, ArrowRight, Clock, MapPin, Video, Mail, ChevronLeft, ChevronRight } from "lucide-react";
+import { news } from "@/data/mockData";
 
 export default function NewsPage() {
     return (
@@ -34,10 +35,10 @@ export default function NewsPage() {
                                     Discover how new Fairtrade initiatives are opening global markets for local tea estates, ensuring fair wages and sustainable agricultural practices across the central highlands.
                                 </p>
                                 <div className="pt-2">
-                                    <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary hover:text-primary-dark transition-colors">
+                                    <Link href="/news/news-1" className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary hover:text-primary-dark transition-colors">
                                         Read Full Story
                                         <ArrowRight size={18} />
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -68,74 +69,24 @@ export default function NewsPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                     {/* Left Column: News Feed (8 cols) */}
                     <div className="lg:col-span-8 flex flex-col gap-6">
-                        {/* News Item 1 */}
-                        <article className="group flex flex-col sm:flex-row gap-5 p-5 rounded-xl bg-white dark:bg-[#1a2c1a] border border-transparent hover:border-[#f0f4f0] dark:hover:border-[#2a3c2a] hover:shadow-sm transition-all">
-                            <div className="w-full sm:w-48 h-48 sm:h-32 shrink-0 rounded-lg bg-gray-200 dark:bg-gray-800 bg-cover bg-center" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuB14lTulwvjqffwNdyGo7ysdarpmpKrkf5tzDWJfL71Zas6ukVCqe4-rjzwDtPAvhzSmy9YIzTaFUENLLc6GTtkMRd9x3ao2hUvAmU5OlJm_sqlM10_zDBwuR7WpeK0iCmMmg_OqkHe1xWt2AIqU1Jv8ZRiYuCvbwqFgPkHpDDzPVG7I09QQjGI83Z-alKnIJo_qt29-VuzzYvsqBT9LsWCeyK1TmKoZm5K0t_V2uEyZULDdDiKQ8Vat4w_DpPxEnwly1EAKORI_mo')` }}></div>
-                            <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-3 text-xs font-medium">
-                                    <span className="text-primary uppercase tracking-wide font-bold">News</span>
-                                    <span className="text-[#618961] dark:text-gray-500">•</span>
-                                    <span className="text-[#618961] dark:text-gray-500">Oct 20, 2023</span>
+                        {news.map((item) => (
+                            <Link href={`/news/${item.id}`} key={item.id} className="group flex flex-col sm:flex-row gap-5 p-5 rounded-xl bg-white dark:bg-[#1a2c1a] border border-transparent hover:border-[#f0f4f0] dark:hover:border-[#2a3c2a] hover:shadow-sm transition-all">
+                                <div className="w-full sm:w-48 h-48 sm:h-32 shrink-0 rounded-lg bg-gray-200 dark:bg-gray-800 bg-cover bg-center" style={{ backgroundImage: `url('${item.image}')` }}></div>
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex items-center gap-3 text-xs font-medium">
+                                        <span className="text-primary uppercase tracking-wide font-bold">{item.type}</span>
+                                        <span className="text-[#618961] dark:text-gray-500">•</span>
+                                        <span className="text-[#618961] dark:text-gray-500">{item.date}</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors leading-tight">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm text-[#618961] dark:text-gray-300 line-clamp-2">
+                                        {item.excerpt}
+                                    </p>
                                 </div>
-                                <h3 className="text-lg font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors leading-tight">
-                                    Spices of Sri Lanka: Empowering Women in Agriculture
-                                </h3>
-                                <p className="text-sm text-[#618961] dark:text-gray-300 line-clamp-2">
-                                    A new cooperative model is helping female spice growers in Matale achieve financial independence through Fairtrade certification and direct market access.
-                                </p>
-                            </div>
-                        </article>
-                        {/* News Item 2 */}
-                        <article className="group flex flex-col sm:flex-row gap-5 p-5 rounded-xl bg-white dark:bg-[#1a2c1a] border border-transparent hover:border-[#f0f4f0] dark:hover:border-[#2a3c2a] hover:shadow-sm transition-all">
-                            <div className="w-full sm:w-48 h-48 sm:h-32 shrink-0 rounded-lg bg-gray-200 dark:bg-gray-800 bg-cover bg-center" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjBtRRTw0f4xlZcSANpnUkADwgO_2DB0w8lK2foOv7pg3FyHl43KB9Kqt2qywZYYKDi-reFKx9JpJXtelBsf2PUUsz8qe6foxWCKsF69gKOfxHQkn0rXCoQA5AwHVxmkpHZWrnWwaNgQGxMjzqthS0RFL0hq8Ve-3kriHUbAmHmjFP0gZO5VCgY2dg9HD3s1NE_kA5NW0cJWe5LTsaoC5X74bNHVoj5ZYD_15Ruxf-bE1brMRbov7Rn7VDTpHkaQ8FrCa44_zqnQg')` }}></div>
-                            <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-3 text-xs font-medium">
-                                    <span className="text-primary uppercase tracking-wide font-bold">Press Release</span>
-                                    <span className="text-[#618961] dark:text-gray-500">•</span>
-                                    <span className="text-[#618961] dark:text-gray-500">Oct 15, 2023</span>
-                                </div>
-                                <h3 className="text-lg font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors leading-tight">
-                                    FNSL Partners with European Retail Giants
-                                </h3>
-                                <p className="text-sm text-[#618961] dark:text-gray-300 line-clamp-2">
-                                    Strategic partnership announced to bring more ethically sourced Sri Lankan products to shelves across Germany and the UK starting next quarter.
-                                </p>
-                            </div>
-                        </article>
-                        {/* News Item 3 */}
-                        <article className="group flex flex-col sm:flex-row gap-5 p-5 rounded-xl bg-white dark:bg-[#1a2c1a] border border-transparent hover:border-[#f0f4f0] dark:hover:border-[#2a3c2a] hover:shadow-sm transition-all">
-                            <div className="w-full sm:w-48 h-48 sm:h-32 shrink-0 rounded-lg bg-gray-200 dark:bg-gray-800 bg-cover bg-center" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuDlyN3ic_K8bQUBjSx-KY_SoMBz5blXGATXRoQEovpKQ2pzPhMmcEsesnzm61h4OzQdeJsfnIwN0Ii0byM8rlMHNSklBDZkYJfppPjKzrM94pGVOS3--hVaFvCUL42THtoNMt9gECuT2nw30yeEF7583rLDw3_9iBLvcXcmUIFK3YGcwBVN0zUPu6BfD-jRIkGWMXeFttohDgMoTB4_eeXjiz0UW4iOGAtGBcxGVte-6tnxTtUynQ0RsmkeGr5tmEZm7Du_YgD0Jus')` }}></div>
-                            <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-3 text-xs font-medium">
-                                    <span className="text-primary uppercase tracking-wide font-bold">Events</span>
-                                    <span className="text-[#618961] dark:text-gray-500">•</span>
-                                    <span className="text-[#618961] dark:text-gray-500">Oct 12, 2023</span>
-                                </div>
-                                <h3 className="text-lg font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors leading-tight">
-                                    Recap: Sustainable Soil Management Workshop
-                                </h3>
-                                <p className="text-sm text-[#618961] dark:text-gray-300 line-clamp-2">
-                                    Over 200 farmers gathered in Nuwara Eliya to learn about organic composting techniques that improve yield without harmful chemicals.
-                                </p>
-                            </div>
-                        </article>
-                        {/* News Item 4 */}
-                        <article className="group flex flex-col sm:flex-row gap-5 p-5 rounded-xl bg-white dark:bg-[#1a2c1a] border border-transparent hover:border-[#f0f4f0] dark:hover:border-[#2a3c2a] hover:shadow-sm transition-all">
-                            <div className="w-full sm:w-48 h-48 sm:h-32 shrink-0 rounded-lg bg-gray-200 dark:bg-gray-800 bg-cover bg-center" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxc3ywa6EZbNuoazElj9ljoTsok7RwyIq6-fmrl5e-VkKGYcxKV9RgHRi1_kbXb-eQpKlrbGM9ZhM9sMs9be5G0y-9_cQlTEcE-LdFJkUyzprnTXOi3Dj9CKT7nqiV7FtizlNBBWUpLoMeVnYQzcFEUo59Z6RKJ9OC1Hu1Tcr7_t7psLSGZXm451IzwxJ7uUQYWreQexRCUQLUwyhkydTIlB42XREp4kdxxO1wgnlB12cPPdZOwep8_gez7qzKYyQXkysikOBgsUg')` }}></div>
-                            <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-3 text-xs font-medium">
-                                    <span className="text-primary uppercase tracking-wide font-bold">News</span>
-                                    <span className="text-[#618961] dark:text-gray-500">•</span>
-                                    <span className="text-[#618961] dark:text-gray-500">Oct 05, 2023</span>
-                                </div>
-                                <h3 className="text-lg font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors leading-tight">
-                                    Coconut Sector: Navigating Climate Challenges
-                                </h3>
-                                <p className="text-sm text-[#618961] dark:text-gray-300 line-clamp-2">
-                                    How Fairtrade premiums are helping coconut producers invest in drought-resistant saplings and irrigation systems.
-                                </p>
-                            </div>
-                        </article>
+                            </Link>
+                        ))}
 
                         {/* Pagination */}
                         <div className="mt-8 flex justify-center">

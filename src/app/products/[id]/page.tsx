@@ -14,35 +14,19 @@ import {
     FileText,
     Users
 } from "lucide-react";
+import { products, producers } from "@/data/mockData";
 
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
 
-    // Mock product data
-    const product = {
-        name: "Organic Ceylon Cinnamon Quills (C5 Grade)",
-        category: "Premium Grade Spice",
-        description: "Authentic 'True Cinnamon' (Cinnamomum zeylanicum) harvested from certified organic cooperatives in Matale. Renowned for its delicate floral aroma, sweet taste, and low coumarin content. Ideal for gourmet culinary applications, extraction, and premium retail packaging.",
-        specs: [
-            { label: "Grade", value: "C5 Special / Continental" },
-            { label: "Appearance", value: "Golden brown, thin bark, smooth texture" },
-            { label: "Moisture Content", value: "Max 12%" },
-            { label: "Volatile Oil", value: "Min 1.0%" },
-            { label: "One Line", value: "Yes" },
-            { label: "Shelf Life", value: "24 Months" }
-        ],
-        quickStats: [
-            { label: "Origin", value: "Matale, Sri Lanka" },
-            { label: "MOQ", value: "500 kg" },
-            { label: "Harvest Season", value: "May – August" },
-            { label: "Form", value: "Whole Quills (42\" Cut)" }
-        ],
-        images: [
-            "https://images.unsplash.com/photo-1558994340-3b603314051a?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&q=80"
-        ]
-    };
+    // Find product from mock data
+    const product = products.find((p) => p.id === id) || products[0];
+
+    // Find related producers (mock logic: find producers that supply this product category or just random)
+    // For this demo, we'll pick producers that list this product in their 'products_supplied' or just the 'related_producers' field I added
+    const productProducers = product.related_producers
+        ? producers.filter(p => product.related_producers?.includes(p.id))
+        : [];
 
     return (
         <div className="min-h-screen bg-background-light dark:bg-background-dark pb-20">
@@ -73,7 +57,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             </div>
                         </div>
                         <div className="grid grid-cols-3 gap-4">
-                            {product.images.map((img, i) => (
+                            {product.images?.map((img, i) => (
                                 <div key={i} className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 relative cursor-pointer hover:opacity-80 transition-opacity">
                                     <Image src={img} alt={`Gallery ${i}`} fill className="object-cover" />
                                 </div>
@@ -96,7 +80,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                             {/* Quick Stats */}
                             <div className="bg-white dark:bg-surface-dark rounded-xl p-5 mb-8 border border-gray-200 dark:border-gray-800">
                                 <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                                    {product.quickStats.map((stat, i) => (
+                                    {product.quickStats?.map((stat, i) => (
                                         <div key={i}>
                                             <p className="text-xs text-slate-500 uppercase font-bold mb-1">{stat.label}</p>
                                             <p className="font-bold text-slate-900 dark:text-white">{stat.value}</p>
@@ -159,7 +143,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                         <div className="bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
                             <table className="w-full text-left text-sm">
                                 <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-                                    {product.specs.map((row, i) => (
+                                    {product.specs?.map((row, i) => (
                                         <tr key={i} className="group">
                                             <td className="p-4 bg-gray-50 dark:bg-white/5 font-bold text-slate-500 w-1/3">{row.label}</td>
                                             <td className="p-4 font-medium text-slate-900 dark:text-white">{row.value}</td>
@@ -190,22 +174,28 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <div className="lg:col-span-4 space-y-6">
                         <h2 className="text-lg font-bold mb-0 text-slate-900 dark:text-white">Producers of this product</h2>
                         <div className="flex flex-col gap-4">
-                            {[1, 2].map((i) => (
-                                <div key={i} className="bg-white dark:bg-surface-dark rounded-xl p-4 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-                                    <div className="flex items-start gap-4">
-                                        <div className="w-16 h-16 rounded-lg bg-gray-200 shrink-0 relative overflow-hidden">
-                                            <Image src={`https://images.unsplash.com/photo-1597816760319-a612140bb715?auto=format&fit=crop&q=80`} alt="Producer" fill className="object-cover" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-sm text-slate-900 dark:text-white">Matale Spice Co-op</h4>
-                                            <div className="text-xs text-slate-500 flex items-center gap-1 mt-1">
-                                                <MapPin size={12} /> Matale, Sri Lanka
+                            {productProducers.length > 0 ? (
+                                productProducers.map((prod) => (
+                                    <Link key={prod.id} href={`/producers/${prod.id}`}>
+                                        <div className="bg-white dark:bg-surface-dark rounded-xl p-4 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                                            <div className="flex items-start gap-4">
+                                                <div className="w-16 h-16 rounded-lg bg-gray-200 shrink-0 relative overflow-hidden">
+                                                    <Image src={prod.images[0]} alt={prod.name} fill className="object-cover" />
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-primary transition-colors">{prod.name}</h4>
+                                                    <div className="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                                        <MapPin size={12} /> {prod.location}
+                                                    </div>
+                                                    <span className="text-xs font-bold text-primary mt-2 inline-block">View Profile</span>
+                                                </div>
                                             </div>
-                                            <span className="text-xs font-bold text-primary mt-2 inline-block">View Profile</span>
                                         </div>
-                                    </div>
-                                </div>
-                            ))}
+                                    </Link>
+                                ))
+                            ) : (
+                                <p className="text-sm text-slate-500 italic">Contact us for supplier information.</p>
+                            )}
                         </div>
 
                         <div className="p-5 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-900">

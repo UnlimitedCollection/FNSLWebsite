@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${publicSans.variable} antialiased bg-background-light dark:bg-background-dark min-h-screen flex flex-col`}
+        className={`${publicSans.variable} antialiased bg-background-light min-h-screen flex flex-col`}
       >
         <Header />
         <main className="flex-1">

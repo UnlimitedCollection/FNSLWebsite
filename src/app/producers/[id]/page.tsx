@@ -13,42 +13,19 @@ import {
     Leaf,
     School,
     Verified,
-    ArrowRight
+    ArrowRight,
+    Heart
 } from "lucide-react";
+import { producers, products } from "@/data/mockData";
 
 export default function ProducerProfilePage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
 
-    // Mock data - In a real app, fetch based on ID
-    const producer = {
-        name: "Golden Valley Spices",
-        type: "Cooperative Society",
-        location: "Kandy, Sri Lanka",
-        est: "1998",
-        members: "450 Members",
-        certifications: ["Fairtrade Certified", "EU Organic", "JAS"],
-        description: [
-            "Rooted in the central highlands of Kandy, Golden Valley Spices was established in 1998 with a simple yet powerful mission: to empower small-scale spice farmers while sharing Sri Lanka's finest organic spices with the world. What started as a small collective of 20 families has grown into a robust cooperative of over 450 members.",
-            "Our farmers practice traditional, regenerative agriculture, intercropping spices with fruit trees to maintain biodiversity and soil health. By adhering to strict Fairtrade standards, we ensure that every purchase contributes directly to the betterment of our community, funding local schools and healthcare initiatives."
-        ],
-        quickFacts: [
-            { label: "Producer Type", value: "Cooperative Society" },
-            { label: "Certifications", value: "Fairtrade, Organic, ISO 22000" },
-            { label: "Primary Crops", value: "Cinnamon, Pepper, Cloves" },
-            { label: "Export Markets", value: "Germany, UK, USA, Japan" },
-            { label: "Processing", value: "On-site grading & drying" },
-            { label: "Annual Volume", value: "~450 Metric Tons" },
-        ],
-        impact: [
-            { icon: Users, title: "Women's Empowerment", text: "40% of our board members are women. We run specialized training programs for female entrepreneurs in the community." },
-            { icon: School, title: "Community Investment", text: "Provided school supplies for 300+ children of member farmers and funded a new computer lab." }
-        ],
-        products: [
-            { name: "Ceylon Cinnamon", sub: "Quills, Powder, Oil", grade: "Grade C4-C5", matches: "https://images.unsplash.com/photo-1558994340-3b603314051a?auto=format&fit=crop&q=80" },
-            { name: "Black Pepper", sub: "Whole, Cracked, Ground", grade: "500-550 GL", matches: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80" },
-            { name: "Organic Cloves", sub: "Hand-picked buds", grade: "Lal Pari", matches: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80" } // Reusing placeholders
-        ]
-    };
+    // Find producer from mock data
+    const producer = producers.find(p => p.id === id) || producers[0];
+
+    // Find related products (mock logic: products that list this producer)
+    const suppliedProducts = products.filter(p => p.related_producers?.includes(producer.id));
 
     return (
         <div className="min-h-screen bg-background-light dark:bg-background-dark pb-20">
@@ -159,7 +136,7 @@ export default function ProducerProfilePage({ params }: { params: Promise<{ id: 
                                 {producer.impact.map((item, i) => (
                                     <div key={i} className="flex gap-4 p-4 bg-slate-50 dark:bg-black/20 rounded-lg">
                                         <div className="bg-primary/20 text-green-700 dark:text-primary p-2 rounded-full h-fit shrink-0">
-                                            <item.icon size={20} />
+                                            <Heart size={20} />
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-slate-900 dark:text-white text-sm">{item.title}</h4>
@@ -174,17 +151,19 @@ export default function ProducerProfilePage({ params }: { params: Promise<{ id: 
                         <section>
                             <h3 className="text-lg font-bold mb-4 px-1 text-slate-900 dark:text-white">Products Supplied</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                {producer.products.map((prod, i) => (
+                                {suppliedProducts.map((prod, i) => (
                                     <div key={i} className="group bg-white dark:bg-surface-dark rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-md transition-shadow">
                                         <div className="h-40 bg-gray-200 relative overflow-hidden">
-                                            <Image src={prod.matches} alt={prod.name} fill className="object-cover" />
+                                            <Image src={prod.images[0]} alt={prod.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                                         </div>
                                         <div className="p-4">
-                                            <h4 className="font-bold text-slate-900 dark:text-white text-sm">{prod.name}</h4>
-                                            <p className="text-xs text-slate-500 dark:text-gray-400 mt-1">{prod.sub}</p>
+                                            <h4 className="font-bold text-slate-900 dark:text-white text-sm line-clamp-1">{prod.name}</h4>
+                                            <p className="text-xs text-slate-500 dark:text-gray-400 mt-1">{prod.category}</p>
                                             <div className="mt-4 flex justify-between items-center">
-                                                <span className="text-xs bg-slate-100 dark:bg-gray-700 px-2 py-1 rounded text-slate-600 dark:text-gray-300 font-medium">{prod.grade}</span>
-                                                <Link href="/products/1" className="text-xs font-bold text-primary hover:text-primary-dark flex items-center">
+                                                <span className="text-xs bg-slate-100 dark:bg-gray-700 px-2 py-1 rounded text-slate-600 dark:text-gray-300 font-medium">
+                                                    {prod.specs.find(s => s.label === "Grade")?.value || "Premium"}
+                                                </span>
+                                                <Link href={`/products/${prod.id}`} className="text-xs font-bold text-primary hover:text-primary-dark flex items-center">
                                                     Details <ArrowRight size={12} className="ml-1" />
                                                 </Link>
                                             </div>
@@ -214,7 +193,10 @@ export default function ProducerProfilePage({ params }: { params: Promise<{ id: 
                                     <label className="block text-sm font-bold text-slate-700 dark:text-gray-300 mb-1">Interested Product</label>
                                     <select className="w-full rounded-lg bg-slate-50 dark:bg-black/20 border-transparent focus:border-primary text-sm py-2.5 px-3">
                                         <option>Select product...</option>
-                                        {producer.products.map(p => <option key={p.name}>{p.name}</option>)}
+                                        {suppliedProducts.length > 0
+                                            ? suppliedProducts.map(p => <option key={p.id} value={p.name}>{p.name}</option>)
+                                            : producer.products_supplied && producer.products_supplied.map(p => <option key={p} value={p}>{p}</option>)
+                                        }
                                     </select>
                                 </div>
                                 <Button className="w-full font-bold justify-center" size="lg">Send Sourcing Inquiry</Button>
