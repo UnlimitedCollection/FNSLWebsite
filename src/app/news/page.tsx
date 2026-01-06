@@ -7,17 +7,17 @@ import { news } from "@/data/mockData";
 
 export default function NewsPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-sans">
+        <div className="flex flex-col min-h-screen bg-background-dark text-white font-sans">
             <main className="flex-1 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8">
                 {/* Page Heading */}
                 <div className="mb-8">
-                    <p className="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-2 dark:text-white">News & Events</p>
-                    <p className="text-[#618961] dark:text-gray-400 text-lg">Latest updates from Fairtrade NAPP–Sri Lanka</p>
+                    <p className="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-2 text-white">News & Events</p>
+                    <p className="text-gray-400 text-lg">Latest updates from Fairtrade NAPP–Sri Lanka</p>
                 </div>
 
                 {/* Featured Story */}
                 <section className="mb-12">
-                    <div className="rounded-xl overflow-hidden shadow-sm bg-white dark:bg-[#1a2c1a] border border-[#f0f4f0] dark:border-[#2a3c2a] group cursor-pointer hover:shadow-md transition-shadow">
+                    <div className="rounded-xl overflow-hidden shadow-sm bg-surface-dark border border-gray-700 group cursor-pointer hover:shadow-md transition-shadow">
                         <div className="flex flex-col lg:flex-row items-stretch">
                             {/* Image */}
                             <div className="w-full lg:w-3/5 h-64 lg:h-auto bg-cover bg-center min-h-[300px]" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAb4Rt98kAfIuxe3Z4iuAJu5jdHcnXQvO-6jtFOx24qFNInQX3L9qO8D7jKT1WJa6AMMFYQG3X292S-WZ812lPxbgYQ94gTsRCRag0yaAz5Bm_yjswrncPKPguB7E9S8Hk_XQvb18YQlZPUv63SVBj3Ijr41nLixBW0HulaXLonnb4QayABTaLUKNVt1r1KQRDEjRu9KUkAx8Fs9tZCuNg01Hm25cXU5Jl3HRRaEVVu5YhdKQ04ro-dk22vvwOZph5-tEeQxWSHDtk')` }}>
@@ -25,20 +25,20 @@ export default function NewsPage() {
                             {/* Content */}
                             <div className="flex-1 p-6 lg:p-10 flex flex-col justify-center gap-4">
                                 <div className="flex items-center gap-2">
-                                    <span className="px-2 py-1 rounded bg-primary/20 text-green-800 dark:text-green-300 text-xs font-bold uppercase tracking-wider">Featured Story</span>
-                                    <span className="text-[#618961] dark:text-gray-500 text-sm font-medium">Oct 24, 2023</span>
+                                    <span className="px-2 py-1 rounded bg-primary/20 text-green-300 text-xs font-bold uppercase tracking-wider">Featured Story</span>
+                                    <span className="text-gray-500 text-sm font-medium">Oct 24, 2023</span>
                                 </div>
-                                <h2 className="text-2xl lg:text-3xl font-bold leading-tight group-hover:text-primary transition-colors dark:text-white">
+                                <h2 className="text-2xl lg:text-3xl font-bold leading-tight group-hover:text-primary transition-colors text-white">
                                     Sri Lankan Tea Producers See 20% Growth in Ethical Exports
                                 </h2>
-                                <p className="text-[#618961] dark:text-gray-300 leading-relaxed">
+                                <p className="text-gray-300 leading-relaxed">
                                     Discover how new Fairtrade initiatives are opening global markets for local tea estates, ensuring fair wages and sustainable agricultural practices across the central highlands.
                                 </p>
                                 <div className="pt-2">
-                                    <Link href="/news/news-1" className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary hover:text-primary-dark transition-colors">
+                                    <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary hover:text-primary-dark transition-colors">
                                         Read Full Story
                                         <ArrowRight size={18} />
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -46,13 +46,13 @@ export default function NewsPage() {
                 </section>
 
                 {/* Search & Filter Toolbar */}
-                <div className="flex flex-col lg:flex-row gap-4 justify-between items-start lg:items-center mb-10 pb-6 border-b border-[#f0f4f0] dark:border-[#2a3c2a]">
+                <div className="flex flex-col lg:flex-row gap-4 justify-between items-start lg:items-center mb-10 pb-6 border-b border-gray-700">
                     {/* Chips */}
                     <div className="flex flex-wrap gap-2">
                         <button className="px-4 py-2 rounded-lg bg-primary text-[#111811] text-sm font-bold transition-colors">All Updates</button>
-                        <button className="px-4 py-2 rounded-lg bg-[#f0f4f0] dark:bg-[#1a2c1a] dark:border dark:border-[#2a3c2a] hover:bg-gray-200 dark:hover:bg-[#2a3c2a] text-[#111811] dark:text-gray-300 text-sm font-medium transition-colors">News</button>
-                        <button className="px-4 py-2 rounded-lg bg-[#f0f4f0] dark:bg-[#1a2c1a] dark:border dark:border-[#2a3c2a] hover:bg-gray-200 dark:hover:bg-[#2a3c2a] text-[#111811] dark:text-gray-300 text-sm font-medium transition-colors">Events</button>
-                        <button className="px-4 py-2 rounded-lg bg-[#f0f4f0] dark:bg-[#1a2c1a] dark:border dark:border-[#2a3c2a] hover:bg-gray-200 dark:hover:bg-[#2a3c2a] text-[#111811] dark:text-gray-300 text-sm font-medium transition-colors">Press Releases</button>
+                        <button className="px-4 py-2 rounded-lg bg-surface-dark border border-gray-700 hover:bg-gray-800 text-gray-300 text-sm font-medium transition-colors">News</button>
+                        <button className="px-4 py-2 rounded-lg bg-surface-dark border border-gray-700 hover:bg-gray-800 text-gray-300 text-sm font-medium transition-colors">Events</button>
+                        <button className="px-4 py-2 rounded-lg bg-surface-dark border border-gray-700 hover:bg-gray-800 text-gray-300 text-sm font-medium transition-colors">Press Releases</button>
                     </div>
                     {/* Search */}
                     <div className="w-full lg:w-auto min-w-[300px]">
@@ -70,7 +70,7 @@ export default function NewsPage() {
                     {/* Left Column: News Feed (8 cols) */}
                     <div className="lg:col-span-8 flex flex-col gap-6">
                         {news.map((item) => (
-                            <Link href={`/news/${item.id}`} key={item.id} className="group flex flex-col sm:flex-row gap-5 p-5 rounded-xl bg-white dark:bg-[#1a2c1a] border border-transparent hover:border-[#f0f4f0] dark:hover:border-[#2a3c2a] hover:shadow-sm transition-all">
+                            <article key={item.id} className="group flex flex-col sm:flex-row gap-5 p-5 rounded-xl bg-white dark:bg-[#1a2c1a] border border-transparent hover:border-[#f0f4f0] dark:hover:border-[#2a3c2a] hover:shadow-sm transition-all">
                                 <div className="w-full sm:w-48 h-48 sm:h-32 shrink-0 rounded-lg bg-gray-200 dark:bg-gray-800 bg-cover bg-center" style={{ backgroundImage: `url('${item.image}')` }}></div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-3 text-xs font-medium">
@@ -85,7 +85,7 @@ export default function NewsPage() {
                                         {item.excerpt}
                                     </p>
                                 </div>
-                            </Link>
+                            </article>
                         ))}
 
                         {/* Pagination */}

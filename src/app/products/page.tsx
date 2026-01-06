@@ -7,7 +7,7 @@ import { products } from "@/data/mockData";
 
 export default function ProductsPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark text-[#111811] dark:text-white font-sans">
+        <div className="flex flex-col min-h-screen bg-background-dark text-white font-sans">
 
             {/* Hero Section */}
             <section className="relative min-h-[560px] flex items-center justify-center text-center px-4 bg-cover bg-center"
@@ -37,32 +37,32 @@ export default function ProductsPage() {
                 <div className="flex flex-col max-w-[1200px] flex-1">
 
                     {/* Trust Indicators */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-12 border-b border-[#e5e9e5] dark:border-[#2a3c2a]">
-                        <div className="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-[#1a2c1a] shadow-sm">
-                            <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center text-green-700 dark:text-green-300">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-12 border-b border-[#2a3c2a]">
+                        <div className="flex items-start gap-4 p-4 rounded-xl bg-[#1a2c1a] shadow-sm">
+                            <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center text-green-300">
                                 <Verified size={24} />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg mb-1">Quality Assured</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Products meet international export standards and rigorous checks.</p>
+                                <p className="text-sm text-gray-400">Products meet international export standards and rigorous checks.</p>
                             </div>
                         </div>
-                        <div className="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-[#1a2c1a] shadow-sm">
-                            <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center text-green-700 dark:text-green-300">
+                        <div className="flex items-start gap-4 p-4 rounded-xl bg-[#1a2c1a] shadow-sm">
+                            <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center text-green-300">
                                 <Handshake size={24} />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg mb-1">Ethically Sourced</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Direct trade supporting fair wages and community development.</p>
+                                <p className="text-sm text-gray-400">Direct trade supporting fair wages and community development.</p>
                             </div>
                         </div>
-                        <div className="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-[#1a2c1a] shadow-sm">
-                            <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center text-green-700 dark:text-green-300">
+                        <div className="flex items-start gap-4 p-4 rounded-xl bg-[#1a2c1a] shadow-sm">
+                            <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center text-green-300">
                                 <FileText size={24} />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg mb-1">Full Traceability</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Transparent supply chains from local farm to global port.</p>
+                                <p className="text-sm text-gray-400">Transparent supply chains from local farm to global port.</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ export default function ProductsPage() {
                         <div className="flex justify-between items-end mb-8">
                             <div>
                                 <h2 className="text-3xl font-bold tracking-tight mb-2">Explore Our Categories</h2>
-                                <p className="text-gray-600 dark:text-gray-400">Browse Sri Lanka&apos;s finest exports by sector.</p>
+                                <p className="text-gray-400">Browse Sri Lanka&apos;s finest exports by sector.</p>
                             </div>
                         </div>
                         {/* Featured Products Grid */}
@@ -80,7 +80,7 @@ export default function ProductsPage() {
                             <div className="flex justify-between items-end mb-8">
                                 <div>
                                     <h2 className="text-3xl font-bold tracking-tight mb-2">Featured Products</h2>
-                                    <p className="text-gray-600 dark:text-gray-400">Export-quality goods available for immediate sourcing.</p>
+                                    <p className="text-gray-400">Export-quality goods available for immediate sourcing.</p>
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -113,12 +113,12 @@ export default function ProductsPage() {
             </div>
 
             {/* How It Works Section */}
-            <div className="py-16 my-8 rounded-3xl bg-[#f0f4f0] dark:bg-[#1a2c1a] px-8 relative overflow-hidden">
+            <div className="py-16 my-8 rounded-3xl bg-[#1a2c1a] px-8 relative overflow-hidden">
                 <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
                 <div className="flex flex-col md:flex-row gap-12 items-center relative z-10">
                     <div className="flex-1">
                         <h2 className="text-3xl font-black mb-4">How Sourcing Requests Work</h2>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        <p className="text-lg text-gray-300 mb-8">
                             Follow these simple steps to connect with verified producers and start your ethical supply chain journey.
                         </p>
                         <button className="flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-[#111811] text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">
@@ -132,10 +132,10 @@ export default function ProductsPage() {
                             { step: 3, title: "Supplier Match", desc: "We connect you with capable, certified producers." },
                             { step: 4, title: "Finalize Logistics", desc: "Coordinate samples, pricing, and shipping." }
                         ].map((item) => (
-                            <div key={item.step} className="bg-white dark:bg-[#111811] p-6 rounded-xl border border-[#e5e9e5] dark:border-[#2a3c2a] flex flex-col gap-3">
-                                <div className="size-10 rounded-full bg-primary/20 text-green-800 dark:text-primary flex items-center justify-center font-bold">{item.step}</div>
+                            <div key={item.step} className="bg-[#111811] p-6 rounded-xl border border-[#2a3c2a] flex flex-col gap-3">
+                                <div className="size-10 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">{item.step}</div>
                                 <h4 className="font-bold text-lg">{item.title}</h4>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{item.desc}</p>
+                                <p className="text-sm text-gray-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -147,10 +147,10 @@ export default function ProductsPage() {
                 <div className="flex justify-between items-center mb-8">
                     <h2 className="text-3xl font-bold tracking-tight">Featured Products</h2>
                     <div className="flex gap-2">
-                        <button className="size-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <button className="size-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-800">
                             <ArrowLeft size={20} />
                         </button>
-                        <button className="size-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <button className="size-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-gray-800">
                             <ArrowRight size={20} />
                         </button>
                     </div>
@@ -175,7 +175,7 @@ export default function ProductsPage() {
                             img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBcpsd7xo4xDKvSbyVJflpMgvL7dbbjjT5Mi927v7Q5mnVwqCoiPkkN4bK0vmALxx5sJrnM-vgAa1ca74E4iX02F-9SYJqVY3IC0-hG1cUZ-E9Re-u0_HbNCzA-1RuX5ltJx1UPJnpgBItcC0NtSN5xX9lxgGK3YaP1SlOThfXKr7d5rJ5DyzsrK3Uz4GyYhiwZ651LdZbEjus6LdHCVjHLbOHmdWLImV5b97M_CIhgpiemh0rgny9BNROTxfL3PDRQKhvtQsI9Tdk"
                         }
                     ].map((item, idx) => (
-                        <div key={idx} className="min-w-[280px] w-[280px] bg-white dark:bg-[#1a2c1a] rounded-xl border border-[#e5e9e5] dark:border-[#2a3c2a] overflow-hidden snap-start hover:shadow-md transition-shadow">
+                        <div key={idx} className="min-w-[280px] w-[280px] bg-[#1a2c1a] rounded-xl border border-[#2a3c2a] overflow-hidden snap-start hover:shadow-md transition-shadow">
                             <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url("${item.img}")` }}></div>
                             <div className="p-4 flex flex-col gap-3">
                                 <div>
@@ -186,7 +186,7 @@ export default function ProductsPage() {
                                         <span>{item.loc}</span>
                                     </div>
                                 </div>
-                                <button className="mt-2 w-full py-2 border border-green-600 dark:border-green-500 text-green-700 dark:text-green-400 rounded-lg text-sm font-bold hover:bg-green-50 dark:hover:bg-green-900/30 transition-colors">
+                                <button className="mt-2 w-full py-2 border border-green-500 text-green-400 rounded-lg text-sm font-bold hover:bg-green-900/30 transition-colors">
                                     Request Quote
                                 </button>
                             </div>

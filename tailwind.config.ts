@@ -8,7 +8,19 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                "primary": "#13ec13",
+                "primary-dark": "#0fb80f",
+                "background-light": "#f6f8f6",
+                "background-dark": "#102210",
+                "surface-light": "#ffffff",
+                "surface-dark": "#1a2e1a",
+            },
+            fontFamily: {
+                "display": ["var(--font-public-sans)", "sans-serif"]
+            },
+        },
     },
     plugins: [],
 };

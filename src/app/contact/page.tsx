@@ -6,20 +6,20 @@ import { MapPin, Phone, Mail, Linkedin, Facebook, Twitter, Instagram, ChevronDow
 
 export default function ContactPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-sans">
+        <div className="flex flex-col min-h-screen bg-background-dark text-white font-sans">
 
             {/* Hero Section */}
-            <section className="relative px-4 sm:px-10 py-12 sm:py-20 bg-background-light dark:bg-background-dark overflow-hidden">
+            <section className="relative px-4 sm:px-10 py-12 sm:py-20 bg-background-dark overflow-hidden">
                 {/* Abstract Background Pattern */}
                 <div
                     className="absolute inset-0 opacity-5 dark:opacity-10 pointer-events-none"
                     style={{ backgroundImage: `radial-gradient(#13ec13 1px, transparent 1px)`, backgroundSize: '32px 32px' }}
                 ></div>
                 <div className="max-w-[960px] mx-auto relative z-10 text-center sm:text-left">
-                    <h1 className="text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4 text-[#111811] dark:text-white">
+                    <h1 className="text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4 text-white">
                         Get in Touch with FNSL
                     </h1>
-                    <p className="text-lg text-[#618961] dark:text-[#a0cfa0] max-w-2xl font-normal leading-relaxed">
+                    <p className="text-lg text-gray-300 max-w-2xl font-normal leading-relaxed">
                         Connecting Sri Lankan producers to ethical global markets. Whether you are a producer, buyer, or partner, we are here to help.
                     </p>
                 </div>
@@ -31,41 +31,41 @@ export default function ContactPage() {
                     {/* Left Column: Contact Information */}
                     <div className="lg:col-span-5 flex flex-col gap-8">
                         <div className="flex flex-col gap-2">
-                            <h2 className="text-2xl font-bold text-[#111811] dark:text-white">Contact Information</h2>
-                            <p className="text-[#618961] dark:text-[#a0cfa0]">
+                            <h2 className="text-2xl font-bold text-white">Contact Information</h2>
+                            <p className="text-gray-400">
                                 Reach out to our team in Colombo for inquiries regarding certification, partnerships, or general information.
                             </p>
                         </div>
                         <div className="flex flex-col gap-4">
                             {/* Address Card */}
-                            <div className="flex gap-4 rounded-xl border border-[#dbe6db] dark:border-gray-700 bg-white dark:bg-[#1a2e1a] p-5 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-full h-fit text-[#111811] dark:text-white">
+                            <div className="flex gap-4 rounded-xl border border-gray-700 bg-surface-dark p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="bg-primary/20 p-3 rounded-full h-fit text-white">
                                     <MapPin className="text-primary" size={24} />
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <h3 className="text-base font-bold text-[#111811] dark:text-white">Visit Us</h3>
-                                    <p className="text-[#618961] dark:text-[#a0cfa0] text-sm">123 Bauddhaloka Mawatha,<br />Colombo 04, Sri Lanka</p>
+                                    <h3 className="text-base font-bold text-white">Visit Us</h3>
+                                    <p className="text-gray-400 text-sm">123 Bauddhaloka Mawatha,<br />Colombo 04, Sri Lanka</p>
                                 </div>
                             </div>
                             {/* Phone Card */}
-                            <div className="flex gap-4 rounded-xl border border-[#dbe6db] dark:border-gray-700 bg-white dark:bg-[#1a2e1a] p-5 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-full h-fit text-[#111811] dark:text-white">
+                            <div className="flex gap-4 rounded-xl border border-gray-700 bg-surface-dark p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="bg-primary/20 p-3 rounded-full h-fit text-white">
                                     <Phone className="text-primary" size={24} />
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <h3 className="text-base font-bold text-[#111811] dark:text-white">Call or WhatsApp</h3>
-                                    <p className="text-[#618961] dark:text-[#a0cfa0] text-sm font-medium">+94 11 234 5678</p>
+                                    <h3 className="text-base font-bold text-white">Call or WhatsApp</h3>
+                                    <p className="text-gray-400 text-sm font-medium">+94 11 234 5678</p>
                                     <p className="text-xs text-gray-500 mt-1">Mon-Fri, 9am - 5pm IST</p>
                                 </div>
                             </div>
                             {/* Email Card */}
-                            <div className="flex gap-4 rounded-xl border border-[#dbe6db] dark:border-gray-700 bg-white dark:bg-[#1a2e1a] p-5 shadow-sm hover:shadow-md transition-shadow">
-                                <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-full h-fit text-[#111811] dark:text-white">
+                            <div className="flex gap-4 rounded-xl border border-gray-700 bg-surface-dark p-5 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="bg-primary/20 p-3 rounded-full h-fit text-white">
                                     <Mail className="text-primary" size={24} />
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <h3 className="text-base font-bold text-[#111811] dark:text-white">Email Us</h3>
-                                    <p className="text-[#618961] dark:text-[#a0cfa0] text-sm">info@fairtradenapp.lk</p>
+                                    <h3 className="text-base font-bold text-white">Email Us</h3>
+                                    <p className="text-gray-400 text-sm">info@fairtradenapp.lk</p>
                                 </div>
                             </div>
                         </div>
@@ -91,17 +91,17 @@ export default function ContactPage() {
 
                     {/* Right Column: Form */}
                     <div className="lg:col-span-7">
-                        <div className="bg-white dark:bg-[#1a2e1a] rounded-2xl p-6 sm:p-8 border border-[#dbe6db] dark:border-gray-700 shadow-lg">
+                        <div className="bg-surface-dark rounded-2xl p-6 sm:p-8 border border-gray-700 shadow-lg">
                             <div className="mb-6">
-                                <h3 className="text-xl font-bold text-[#111811] dark:text-white">How can we help you today?</h3>
-                                <p className="text-sm text-[#618961] dark:text-[#a0cfa0] mt-1">Please fill out the form below and we will get back to you.</p>
+                                <h3 className="text-xl font-bold text-white">How can we help you today?</h3>
+                                <p className="text-sm text-gray-400 mt-1">Please fill out the form below and we will get back to you.</p>
                             </div>
                             <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
                                 {/* Role Selection */}
                                 <div className="flex flex-col gap-2">
-                                    <label className="text-sm font-medium text-[#111811] dark:text-gray-200" htmlFor="role">I am a...</label>
+                                    <label className="text-sm font-medium text-gray-200" htmlFor="role">I am a...</label>
                                     <div className="relative">
-                                        <select className="w-full appearance-none rounded-lg border border-[#dbe6db] dark:border-gray-600 bg-background-light dark:bg-gray-800 px-4 py-3 text-base text-[#111811] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="role" defaultValue="">
+                                        <select className="w-full appearance-none rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-base text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="role" defaultValue="">
                                             <option disabled value="">Select Role</option>
                                             <option value="producer">Producer / Farmer</option>
                                             <option value="buyer">Buyer / Trader</option>
@@ -138,8 +138,8 @@ export default function ContactPage() {
                                 </div>
                                 {/* Message */}
                                 <div className="flex flex-col gap-2">
-                                    <label className="text-sm font-medium text-[#111811] dark:text-gray-200" htmlFor="message">Message</label>
-                                    <textarea className="w-full rounded-lg border border-[#dbe6db] dark:border-gray-600 bg-background-light dark:bg-gray-800 px-4 py-3 text-base text-[#111811] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-gray-400 resize-none" id="message" placeholder="Tell us more about your inquiry..." rows={4}></textarea>
+                                    <label className="text-sm font-medium text-gray-200" htmlFor="message">Message</label>
+                                    <textarea className="w-full rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-base text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-gray-400 resize-none" id="message" placeholder="Tell us more about your inquiry..." rows={4}></textarea>
                                 </div>
                                 {/* Submit & Validation */}
                                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
@@ -159,7 +159,7 @@ export default function ContactPage() {
             </section>
 
             {/* Map Section */}
-            <section className="w-full h-[400px] relative bg-gray-200 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+            <section className="w-full h-[400px] relative bg-gray-800 flex items-center justify-center overflow-hidden">
                 {/* Placeholder for Map Embed */}
                 <div className="absolute inset-0 bg-cover bg-center opacity-40 grayscale" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8TiTFoqraY_5mJF7BBIy5MRS5SumMVhypa7PQuzPkdhpLzJmGPKggDaIm-1jLDR3SVVxXKxORrqJrcq35PvFyWvl6OtJPXKF5_yL2d2RQlvzwVqQ3Y94-s52SSW2aF_qSuk26dh8XFChivm4rrLGf8yMcKw-xJldqA198CPQPlV0VXDHWZzuFgGqwTujjd7-Fi1f1QY5P2ju4XwzHD-VnGe9oC4m7Edrkjd5IH8HJRcQwrJBlXaWa9yEMH7KmMNALnKDL64bfQjU')` }}></div>
                 <div className="relative z-10 bg-white dark:bg-[#1a2e1a] p-6 rounded-xl shadow-xl max-w-sm text-center border border-gray-100 dark:border-gray-700">
@@ -171,7 +171,7 @@ export default function ContactPage() {
             </section>
 
             {/* FAQ Section */}
-            <section className="bg-white dark:bg-[#1a2e1a] py-16 px-4 sm:px-10 border-t border-gray-100 dark:border-gray-800">
+            <section className="bg-surface-dark py-16 px-4 sm:px-10 border-t border-gray-800">
                 <div className="max-w-[800px] mx-auto">
                     <div className="text-center mb-10">
                         <h2 className="text-3xl font-bold text-[#111811] dark:text-white mb-3">Frequently Asked Questions</h2>

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #102210;
+  --background: #102210;
+  --foreground: #ffffff;
 
   /* FNSL Brand Colors */
   --color-primary: #13ec13;
   --color-primary-dark: #0fb80f;
-  --color-background-light: #ffffff;
+  --color-background-light: #f6f8f6;
   --color-background-dark: #102210;
   --color-surface-light: #ffffff;
   --color-surface-dark: #1a2e1a;

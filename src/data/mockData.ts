@@ -139,7 +139,7 @@ export const products = [
         ],
         certifications: ["Fairtrade", "EU Organic"],
         images: [
-            "/images/category-spices.png",
+            "https://images.unsplash.com/photo-1558994340-3b603314051a?auto=format&fit=crop&q=80",
             "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80"
         ],
         related_producers: ["producer-1"]
@@ -162,7 +162,7 @@ export const products = [
         ],
         certifications: ["Fairtrade", "Rainforest Alliance"],
         images: [
-            "/images/category-tea.png",
+            "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&q=80",
             "https://images.unsplash.com/photo-1563911892437-1feda920436d?auto=format&fit=crop&q=80"
         ],
         related_producers: ["producer-2"]
@@ -253,7 +253,7 @@ export const products = [
         ],
         certifications: ["Fairtrade", "ISO 22000"],
         images: [
-            "/images/category-coconut.png",
+            "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&q=80",
             "https://images.unsplash.com/photo-1624638760037-1473bd24775d?auto=format&fit=crop&q=80"
         ],
         related_producers: ["producer-3"]

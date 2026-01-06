@@ -21,9 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${publicSans.variable} antialiased bg-background-light min-h-screen flex flex-col`}
+        className={`${publicSans.variable} font-display antialiased bg-background-dark text-white min-h-screen flex flex-col overflow-x-hidden`}
       >
         <Header />
         <main className="flex-1">

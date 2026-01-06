@@ -31,15 +31,15 @@ export default function ProducersList({ initialProducers }: ProducersListProps) 
                     </Button>
                 </div>
 
-                <div className={`${isMobileFiltersOpen ? "flex" : "hidden"} lg:flex flex-col gap-8 sticky top-24 bg-white dark:bg-surface-dark p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm`}>
+                <div className={`${isMobileFiltersOpen ? "flex" : "hidden"} lg:flex flex-col gap-8 sticky top-24 bg-surface-dark p-6 rounded-xl border border-gray-800 shadow-sm`}>
                     {/* Category */}
                     <div className="flex flex-col gap-3">
                         <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-gray-400">Product Category</h3>
                         <div className="flex flex-col gap-2">
                             {["Tea", "Spices & Herbs", "Coconut Products", "Rubber", "Fruits & Vegetables"].map(cat => (
                                 <label key={cat} className="flex items-center gap-3 cursor-pointer group">
-                                    <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary" />
-                                    <span className="text-slate-700 dark:text-gray-300 text-sm group-hover:text-primary transition-colors">{cat}</span>
+                                    <input type="checkbox" className="w-4 h-4 rounded border-gray-600 text-primary focus:ring-primary bg-gray-700" />
+                                    <span className="text-gray-300 text-sm group-hover:text-primary transition-colors">{cat}</span>
                                 </label>
                             ))}
                         </div>
@@ -49,8 +49,8 @@ export default function ProducersList({ initialProducers }: ProducersListProps) 
 
                     {/* Region */}
                     <div className="flex flex-col gap-3">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-gray-400">District</h3>
-                        <select className="block w-full rounded-lg border-gray-300 text-sm focus:border-primary focus:ring-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white py-2 px-3">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400">District</h3>
+                        <select className="block w-full rounded-lg border-gray-700 text-sm focus:border-primary focus:ring-primary bg-gray-700 text-white py-2 px-3">
                             <option>All Districts</option>
                             <option>Kandy</option>
                             <option>Nuwara Eliya</option>
@@ -63,10 +63,10 @@ export default function ProducersList({ initialProducers }: ProducersListProps) 
 
                     {/* Standards */}
                     <div className="flex flex-col gap-3">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-gray-400">Standards</h3>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400">Standards</h3>
                         <div className="flex flex-wrap gap-2">
                             {["Fairtrade", "Organic", "ISO 22000", "Rainforest A."].map(tag => (
-                                <button key={tag} className="rounded-full border border-gray-300 px-3 py-1 text-xs font-medium text-slate-600 hover:border-primary hover:bg-primary/10 hover:text-primary dark:border-gray-600 dark:text-gray-300 transition-colors">
+                                <button key={tag} className="rounded-full border border-gray-600 px-3 py-1 text-xs font-medium text-gray-300 hover:border-primary hover:bg-primary/10 hover:text-primary transition-colors">
                                     {tag}
                                 </button>
                             ))}
@@ -77,8 +77,8 @@ export default function ProducersList({ initialProducers }: ProducersListProps) 
 
             {/* Grid */}
             <div className="flex flex-col gap-6">
-                <div className="flex items-center justify-between text-sm text-slate-500 dark:text-gray-400">
-                    <p>Showing <span className="font-bold text-slate-900 dark:text-white">{initialProducers.length}</span> results</p>
+                <div className="flex items-center justify-between text-sm text-gray-400">
+                    <p>Showing <span className="font-bold text-white">{initialProducers.length}</span> results</p>
                 </div>
 
                 {initialProducers.length > 0 ? (
@@ -95,7 +95,7 @@ export default function ProducersList({ initialProducers }: ProducersListProps) 
 
                 <div className="mt-8 flex justify-center">
                     <Button variant="outline" disabled>Previous</Button>
-                    <div className="flex items-center px-4 font-bold text-slate-900 dark:text-white">1</div>
+                    <div className="flex items-center px-4 font-bold text-white">1</div>
                     <Button variant="outline">Next</Button>
                 </div>
             </div>

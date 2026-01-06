@@ -4,15 +4,15 @@ import { Flag, Eye, Heart, Users, Handshake, Globe, ArrowRight, GraduationCap, S
 
 export default function AboutPage() {
     return (
-        <div className="flex flex-col min-h-screen font-sans bg-background-light dark:bg-background-dark text-slate-900 dark:text-white">
+        <div className="flex flex-col min-h-screen font-sans bg-background-dark text-white">
 
             {/* Breadcrumbs */}
-            <div className="bg-white dark:bg-surface-dark border-b border-[#f0f4f0] dark:border-[#2a3e2a]">
+            <div className="bg-surface-dark border-b border-gray-800">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-10 py-3">
                     <div className="flex flex-wrap gap-2 items-center text-sm">
-                        <Link href="/" className="text-[#618961] hover:text-primary font-medium">Home</Link>
-                        <span className="text-[#618961] font-medium">/</span>
-                        <span className="text-[#111811] dark:text-white font-semibold">About Us</span>
+                        <Link href="/" className="text-gray-400 hover:text-primary font-medium">Home</Link>
+                        <span className="text-gray-600 font-medium">/</span>
+                        <span className="text-white font-semibold">About Us</span>
                     </div>
                 </div>
             </div>
@@ -40,37 +40,37 @@ export default function AboutPage() {
             </section>
 
             {/* Mission, Vision, Values */}
-            <section className="py-16 md:py-24 bg-white dark:bg-surface-dark">
+            <section className="py-16 md:py-24 bg-surface-dark">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Mission */}
-                        <div className="flex flex-col gap-4 p-6 rounded-xl bg-background-light dark:bg-background-dark border border-[#dbe6db] dark:border-[#2a3e2a] hover:shadow-lg transition-shadow duration-300">
-                            <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary mb-2">
+                        <div className="flex flex-col gap-4 p-6 rounded-xl bg-background-dark border border-gray-800 hover:shadow-lg transition-shadow duration-300">
+                            <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
                                 <Flag size={32} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-[#111811] dark:text-white mb-2">Our Mission</h3>
-                                <p className="text-[#618961] dark:text-gray-400 leading-relaxed">To empower Sri Lankan producers by connecting them to fair markets, ensuring they receive the equitable value their hard work deserves.</p>
+                                <h3 className="text-xl font-bold text-white mb-2">Our Mission</h3>
+                                <p className="text-gray-400 leading-relaxed">To empower Sri Lankan producers by connecting them to fair markets, ensuring they receive the equitable value their hard work deserves.</p>
                             </div>
                         </div>
                         {/* Vision */}
-                        <div className="flex flex-col gap-4 p-6 rounded-xl bg-background-light dark:bg-background-dark border border-[#dbe6db] dark:border-[#2a3e2a] hover:shadow-lg transition-shadow duration-300">
-                            <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary mb-2">
+                        <div className="flex flex-col gap-4 p-6 rounded-xl bg-background-dark border border-gray-800 hover:shadow-lg transition-shadow duration-300">
+                            <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
                                 <Eye size={32} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-[#111811] dark:text-white mb-2">Our Vision</h3>
-                                <p className="text-[#618961] dark:text-gray-400 leading-relaxed">A world where trade is fair, sustainable, and transparent, creating thriving communities across Sri Lanka.</p>
+                                <h3 className="text-xl font-bold text-white mb-2">Our Vision</h3>
+                                <p className="text-gray-400 leading-relaxed">A world where trade is fair, sustainable, and transparent, creating thriving communities across Sri Lanka.</p>
                             </div>
                         </div>
                         {/* Values */}
-                        <div className="flex flex-col gap-4 p-6 rounded-xl bg-background-light dark:bg-background-dark border border-[#dbe6db] dark:border-[#2a3e2a] hover:shadow-lg transition-shadow duration-300">
-                            <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark dark:text-primary mb-2">
+                        <div className="flex flex-col gap-4 p-6 rounded-xl bg-background-dark border border-gray-800 hover:shadow-lg transition-shadow duration-300">
+                            <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
                                 <Heart size={32} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-[#111811] dark:text-white mb-2">Our Values</h3>
-                                <p className="text-[#618961] dark:text-gray-400 leading-relaxed">Integrity in our dealings, Sustainability in our practices, and Transparency in every action we take.</p>
+                                <h3 className="text-xl font-bold text-white mb-2">Our Values</h3>
+                                <p className="text-gray-400 leading-relaxed">Integrity in our dealings, Sustainability in our practices, and Transparency in every action we take.</p>
                             </div>
                         </div>
                     </div>
@@ -78,11 +78,11 @@ export default function AboutPage() {
             </section>
 
             {/* The Fairtrade Ecosystem */}
-            <section className="py-20 bg-background-light dark:bg-background-dark border-y border-[#dbe6db] dark:border-[#2a3e2a]">
+            <section className="py-20 bg-background-dark border-y border-gray-800">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
-                        <h2 className="text-3xl font-bold text-[#111811] dark:text-white mb-4">How We Fit in the Fairtrade Ecosystem</h2>
-                        <p className="text-[#618961] dark:text-gray-400 text-lg">We serve as the vital link connecting grassroots efforts to global opportunities.</p>
+                        <h2 className="text-3xl font-bold text-white mb-4">How We Fit in the Fairtrade Ecosystem</h2>
+                        <p className="text-gray-400 text-lg">We serve as the vital link connecting grassroots efforts to global opportunities.</p>
                     </div>
                     <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
                         {/* Step 1: Producers */}
@@ -128,7 +128,7 @@ export default function AboutPage() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {/* Card 1 */}
-                        <div className="group relative overflow-hidden rounded-xl bg-background-light dark:bg-background-dark min-h-[300px] flex flex-col justify-end p-6 border border-transparent hover:border-primary/50 transition-colors">
+                        <div className="group relative overflow-hidden rounded-xl bg-background-dark min-h-[300px] flex flex-col justify-end p-6 border border-gray-800 hover:border-primary/50 transition-colors">
                             <div className="absolute inset-0 z-0">
                                 <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4q2aGdZto8EmdqeVRGjYqdEm2FAx5cjPjoG5vQWukTsEVXT7knAQNnotN1rB-Qo93L6DIJPCYEaYG6Td1nxYcPlVFemTesDHL3-Ov6tmwwqEwlrxHPebEr7D49vh3QRhS_YDIOOz_7OmfroZ8Z76tTMdcDSAFU-MW33emK7B2VZnf3zZ8L9OlAsvLRFMFMQGZ5B8HllKQVSYB-sC_kM4hZjoXkYtJ5XZWnQXnwEtVwxqi5xED4h4m-trkDlXIm6xEGqZOitrGPu4')` }}></div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                             </div>
                         </div>
                         {/* Card 2 */}
-                        <div className="group relative overflow-hidden rounded-xl bg-background-light dark:bg-background-dark min-h-[300px] flex flex-col justify-end p-6 border border-transparent hover:border-primary/50 transition-colors">
+                        <div className="group relative overflow-hidden rounded-xl bg-background-dark min-h-[300px] flex flex-col justify-end p-6 border border-gray-800 hover:border-primary/50 transition-colors">
                             <div className="absolute inset-0 z-0">
                                 <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAsOALN3wcqKXNuzMDRiYhSNYHCnfzxp-TluVxDadEkpcwy96p5Ib3rXI2ptoJVhiW8flvMHOazoevhV6ZUnpAYNgNe0T3OPlSxSCvgthyagDpJDZ2BnbRLc5WxLZXZ2QhylnwnIMNmVZNECmnfUtQhfmVXWHgpYviMOUYMfM2Lk-z8dkcOZ8M8tZsFZHAGz4fauPPCa6ifVvYHRWf8IDyZ3QlIo-3Vpt8jZ8GGUi9Ytd9K4BptjMHbifCl4mW7zNJVc1blOBzhEaI')` }}></div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -156,7 +156,7 @@ export default function AboutPage() {
                             </div>
                         </div>
                         {/* Card 3 */}
-                        <div className="group relative overflow-hidden rounded-xl bg-background-light dark:bg-background-dark min-h-[300px] flex flex-col justify-end p-6 border border-transparent hover:border-primary/50 transition-colors">
+                        <div className="group relative overflow-hidden rounded-xl bg-background-dark min-h-[300px] flex flex-col justify-end p-6 border border-gray-800 hover:border-primary/50 transition-colors">
                             <div className="absolute inset-0 z-0">
                                 <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBeD6vm0fb7hhlFUYH-EWJDfujzWhxjC3kg3uHnVePKlqynmPdXGo8lvgyMhS8CZPxUOeifMyPX1FSKIJiIKHbkGn9hMi6Xc6l6KGPnolZwzfOuHnwVUuLDuywwPtCQLY4Me0jlK1__yoj6g41cHK1lpTIoy4ttjAX_rjCk0uR-AVnwI8At_4ScDmFMAF92NoHsGDuL_-ZTwDYINPPzaeBFbBxxkGOfuzfTBJYhJQpC9Gawnr21drtzApgHrZTccywcM01iGbHbQVc')` }}></div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -174,27 +174,27 @@ export default function AboutPage() {
             </section>
 
             {/* Governance & Partners */}
-            <section className="py-20 bg-background-light dark:bg-background-dark">
+            <section className="py-20 bg-background-dark">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-10 flex flex-col lg:flex-row gap-16">
                     {/* Governance Teaser */}
                     <div className="flex-1">
                         <div className="flex items-center gap-3 mb-4">
                             <Scale className="text-primary" size={28} />
-                            <h3 className="text-2xl font-bold text-[#111811] dark:text-white">Governance & Accountability</h3>
+                            <h3 className="text-2xl font-bold text-white">Governance & Accountability</h3>
                         </div>
-                        <p className="text-[#618961] dark:text-gray-400 mb-6 leading-relaxed">
+                        <p className="text-gray-400 mb-6 leading-relaxed">
                             FNSL operates with a commitment to high ethical standards. Our board is composed of producer representatives and industry experts dedicated to transparent decision-making. We believe that accountability is the cornerstone of trust.
                         </p>
-                        <Link href="#" className="inline-flex items-center justify-center h-12 px-6 rounded-lg border border-[#dbe6db] dark:border-[#2a3e2a] bg-white dark:bg-surface-dark text-[#111811] dark:text-white font-bold text-sm hover:bg-gray-50 dark:hover:bg-[#203620] transition-colors">
+                        <Link href="#" className="inline-flex items-center justify-center h-12 px-6 rounded-lg border border-gray-800 bg-surface-dark text-white font-bold text-sm hover:bg-gray-800 transition-colors">
                             View Transparency Report
                         </Link>
                     </div>
                     {/* Logo Wall */}
                     <div className="flex-1">
-                        <h3 className="text-lg font-bold text-[#111811] dark:text-white mb-6 uppercase tracking-wider text-center lg:text-left">Trusted by Global Networks</h3>
+                        <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider text-center lg:text-left">Trusted by Global Networks</h3>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                             {["Fairtrade", "NAPP", "EU Aid", "UNDP", "USAID", "EDB"].map((logo) => (
-                                <div key={logo} className="h-20 bg-white dark:bg-surface-dark rounded-lg flex items-center justify-center p-4 border border-[#e0e6e0] dark:border-[#2a3e2a] hover:border-primary transition-colors">
+                                <div key={logo} className="h-20 bg-surface-dark rounded-lg flex items-center justify-center p-4 border border-gray-800 hover:border-primary transition-colors">
                                     <span className="text-gray-400 font-bold text-xl italic">{logo}</span>
                                 </div>
                             ))}
@@ -204,7 +204,7 @@ export default function AboutPage() {
             </section>
 
             {/* Call to Action */}
-            <section className="py-24 bg-white dark:bg-surface-dark">
+            <section className="py-24 bg-surface-dark">
                 <div className="max-w-[960px] mx-auto px-4 sm:px-10">
                     <div className="bg-background-dark dark:bg-black rounded-2xl overflow-hidden shadow-2xl relative">
                         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
